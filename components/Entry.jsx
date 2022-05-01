@@ -7,7 +7,7 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
     function handleAdd(evt) {
         evt.preventDefault();
 
-        const defaultDuration = Temporal.Duration.from({milliseconds: 40})
+        const defaultDuration = Temporal.Duration.from({milliseconds: 100}).total('millisecond')
         const title = `your ${reviewItems.length + 1} entry to review`
         const content = {
             id: title + Math.floor(Math.random() * 10 ** 4),
@@ -18,7 +18,7 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
         }
         const createdAt = Temporal.Now.instant();
         const durations = [
-            Temporal.Duration.from({ seconds: 0 }),
+            // Temporal.Duration.from({ seconds: 0 }),
             Temporal.Duration.from({ seconds: 1, milliseconds: 1 }),
             Temporal.Duration.from({ seconds: 2, milliseconds: 2 }),
             Temporal.Duration.from({ seconds: 3, milliseconds: 3 }),

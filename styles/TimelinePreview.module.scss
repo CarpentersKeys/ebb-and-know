@@ -1,0 +1,17 @@
+
+
+.outerBar {
+    position: relative;
+    min-height: 1px;
+    height: 100px;
+    width: 100%;
+    background-color: #333;
+}
+
+.review {
+    position: absolute;
+    max-width: 100%;
+    min-height: 1px;
+    height: 100%;
+    background-color: rgb(54, 89, 43);
+}

@@ -1,29 +1,51 @@
+import { Temporal } from "@js-temporal/polyfill";
+import { useEffect, useState } from "react";
+import styles from '../styles/TimelinePreview.module.scss';
+import useInterval from '../hooks/useInterval'
+
 export default function TimelinePreview({ reviewItems }) {
-    const [denom, denomSet] = useState();
+    const [lastRevMs, lastRevMsSet] = useState(null);
+    const [reviewsJsx, reviewsJsxSet] = useState([]);
 
 
+    useInterval(() => {
+        if (reviewItems.length < 1) { return; };
+        const lastRev = reviewItems[reviewItems.length - 1]?.reviewTime;
+        const msFromNow = Temporal.Now.instant().until(lastRev).total('millisecond');
+        lastRevMsSet(msFromNow);
+    }, 33)
 
-    const denom = reviewItems[reviewItems.length - 1].reviewTime;
-    const reviews = reviewItems.map(i => ({ pos: i.reviewTime / denom, width: i.duration / denom }))
+    useEffect(() => {
+        if (!lastRevMs) { return; };
+        const revs = (
+            reviewItems
+                .map((r, i) => {
+                    const revFromNowMs = Temporal.Now.instant().until(r.reviewTime).total('millisecond')
+
+                    const wid = Math.min((r.duration / lastRevMs) * 100, 100);
+                    const pos = Math.max((revFromNowMs / lastRevMs) * 100 - wid, 0);
+                    const bord = (100 - wid);
+                    return (
+                        <div className={styles.review} key={i}>
+                            <style jsx>{`
+                                div {
+                                    border-radius: ${bord}%;
+                                    left: ${pos}%;
+                                    width: ${wid}%;
+                                }
+                            `}</style>
+                        </div>
+                    )
+                }))
+
+        reviewsJsxSet(revs);
+    }, [lastRevMs, reviewItems])
 
     return (
-        <div className="outerBar">
-            <div className="progressBar">
+        <div>
+            <div className={styles.outerBar}>
+                {reviewsJsx}
             </div>
-            <style jsx>{`
-                .outerBar {
-                    min-height: 1px;
-                    height: 100px;
-                    width: 100%;
-                    background-color: #333;
-                }
-                .progressBar{
-                    min-height: 1px;
-                    height: 100px;
-                    width: 30%;
-                    background-color: #999;
-                }
-            `}</style>
         </div>
     )
 

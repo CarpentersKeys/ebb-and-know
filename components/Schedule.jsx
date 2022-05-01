@@ -1,28 +1,28 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { useEffect, useState } from "react";
 
-export default function Schedule({ reviewItems, reviewItemsSet }) {
-    const [pendingReviews, pendingReviewsSet] = useState([]);
+export default function Schedule({ reviewItems, reviewItemsSet, pendingReviewsSet }) {
     const [timerRunning, timerRunningSet] = useState(false);
 
 
     useEffect(() => {
         if (reviewItems.length < 1) { return; };
         if (timerRunning) { return; };
-        timerRunningSet(true);
 
         const next = reviewItems[0];
         const now = Temporal.Now.instant();
         const msToNext = now.until(next.reviewTime).total({ unit: 'millisecond' });
 
+        timerRunningSet(true);
         setTimeout(() => {
-            console.log('time to review!')
-            reviewItemsSet((prev) => prev.slice(1))
-            pendingReviewsSet((prev) => prev.slice(0, 1))
+            reviewItemsSet(prev => {
+                pendingReviewsSet((prevPend) => prevPend.concat(prev.slice(0, 1)))
+                return prev.slice(1)
+            })
 
             timerRunningSet(false);
         }, msToNext)
-    }, [reviewItems, reviewItemsSet, timerRunning])
+    }, [reviewItems, reviewItemsSet, timerRunning, pendingReviewsSet])
 
     return (
         <div></div>

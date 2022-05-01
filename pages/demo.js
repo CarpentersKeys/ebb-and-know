@@ -5,20 +5,23 @@ import Schedule from '../components/Schedule';
 import TimelinePreview from '../components/TimelinePreview';
 
 export default function AppDemo() {
-    const [firstAdd, firstAddSet] = useState(false);
     const [reviewItems, reviewItemsSet] = useState([]);
+    const [pendingReviews, pendingReviewsSet] = useState([]);
 
     useEffect(() => {
-        console.log('demo:', reviewItems)
-    }, [reviewItems]);
+        console.log('pend:', pendingReviews)
+        console.log('rev:', reviewItems)
+    }, [pendingReviews, reviewItems]);
 
     return (
         <div>
             <h1>Ebb..</h1>
             <Prompt count={reviewItems.length} />
             <Entry reviewItems={reviewItems} reviewItemsSet={reviewItemsSet} />
-            <Schedule reviewItems={reviewItems} reviewItemsSet={reviewItemsSet}/>
+            <Schedule reviewItems={reviewItems} reviewItemsSet={reviewItemsSet} pendingReviewsSet={pendingReviewsSet} />
             <TimelinePreview reviewItems={reviewItems} />
+            {/* CURRENT: display reviews */}
+            {/* <PendingTab pendingReviews={pendingReviews} pendingReviewsSet={pendingReviewsSet} /> */}
         </div>
     )
 }
