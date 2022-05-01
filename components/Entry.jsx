@@ -7,6 +7,7 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
     function handleAdd(evt) {
         evt.preventDefault();
 
+        const defaultDuration = Temporal.Duration.from({milliseconds: 40})
         const title = `your ${reviewItems.length + 1} entry to review`
         const content = {
             id: title + Math.floor(Math.random() * 10 ** 4),
@@ -28,17 +29,18 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
                 reviewTime: createdAt.add(d),
                 timeFromCreated: d,
                 content,
-                // reviewDuration: null, //FUTURE: how long to spend reviewing
+                duration: defaultDuration, //FUTURE: how long to spend reviewing
             }))
 
         reviewItemsSet(
             reviewItems
                 .slice()
                 .concat(newReviews)
+                // TODO SORT CAN BE IMPROVED
                 .sort((a, b) => {
                     const A = a.reviewTime.since(Temporal.Now.instant());
                     const B = b.reviewTime.since(Temporal.Now.instant());
-                    Temporal.Duration.compare(A, B);
+                    return Temporal.Duration.compare(A, B);
                 })
         );
     }
