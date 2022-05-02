@@ -7,7 +7,14 @@
 }
 
 .tab {
-    position: sticky;
-    top: 100%;
+    position: absolute;
+    display: table;
+    bottom: 0vh;
+    width: 100vw;
+    height: 30vh;
     background-color: khaki;
+}
+
+.tabItem {
+    display: inline;
 }
