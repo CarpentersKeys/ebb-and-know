@@ -1,0 +1,13 @@
+@import './Home.module.scss';
+
+.collapse {
+    min-height: 1em;
+    font-size: 1em;
+    user-select: none;
+}
+
+.tab {
+    position: sticky;
+    top: 100%;
+    background-color: khaki;
+}
