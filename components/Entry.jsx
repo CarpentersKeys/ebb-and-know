@@ -1,8 +1,11 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { useState } from 'react';
+import styles from '../styles/Entry.module.scss';
 
 export default function Entry({ reviewItems, reviewItemsSet }) {
     const [contentBody, contentBodySet] = useState('');
+    const [contentTitle, contentTitleSet] = useState('');
+    const [contentLink, contentLinkSet] = useState('');
 
     function handleAdd(evt) {
         evt.preventDefault();
@@ -44,8 +47,21 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
     }
 
     return (
-        <form onSubmit={(evt) => handleAdd(evt)}>
-            <input type="text" value={contentBody} onChange={(evt) => { contentBodySet(evt.target.value) }} placeholder="something you need to remember?"></input>
+        <form className={styles.form} onSubmit={(evt) => handleAdd(evt)}>
+            <input
+                type="text"
+                value={contentTitle}
+                onChange={(evt) => { contentTitleSet(evt.target.value) }}
+                placeholder="something you need to remember?" />
+            <input
+                type="url"
+                value={contentLink}
+                onChange={(evt) => { contentLinkSet(evt.target.value) }}
+                placeholder="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types" />
+            <textarea
+                value={contentBody}
+                onChange={(evt) => { contentBodySet(evt.target.value) }}
+                placeholder="" />
         </form>
     )
 }
