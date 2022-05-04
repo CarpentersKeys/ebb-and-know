@@ -3,6 +3,7 @@
 }
 
 .main {
+  font-family: var(--zen);
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
@@ -93,6 +94,7 @@
 }
 
 .card h2 {
+  font-family: var(--spartan);
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 }

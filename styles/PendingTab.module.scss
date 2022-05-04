@@ -1,20 +1,42 @@
 @import './Home.module.scss';
 
 .collapse {
-    min-height: 1em;
     font-size: 1em;
+    height: .8rem;
+    border-radius: 10vh 23vh 0px 0px;
     user-select: none;
+    background-color: rgba(255, 166, 0, 0.485);
 }
 
 .tab {
-    position: absolute;
-    display: table;
-    bottom: 0vh;
-    width: 100vw;
-    height: 30vh;
+    position: sticky;
+    top: 100vh;
+    max-height: 15vh;
     background-color: khaki;
 }
 
-.tabItem {
-    display: inline;
+.row {
+    margin: 0px;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    margin: 10px;
+    list-style-type: none;
+    float: left;
+    width: 33vw;
+    max-width: 300px;
+    background-color: rgb(244, 238, 180);
+    :hover {
+        background-color: rgb(238, 213, 182);
+    }
 }

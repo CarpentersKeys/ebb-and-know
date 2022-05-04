@@ -1,6 +1,25 @@
-.card {
-    position: absolute;
-    display: flex;
+div .card {
+    border-radius: .3rem .7rem;
+    text-align: center;
     background-color: rgb(238, 233, 182);
-    left: 0;
+    border: 1px solid #986c15cd;
+    user-select: none;
+
+}
+
+.card h2,
+.card p {
+    margin: 0;
+    font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card h2 {
+    padding: .15rem;
+}
+
+.card p {
+    padding: 4px;
 }

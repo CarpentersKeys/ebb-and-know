@@ -1,0 +1,33 @@
+.form {
+    float: left;
+    padding: .9rem;
+}
+
+.form input,
+.form textarea {
+    font-size: large;
+    background-color: rgba(255, 166, 0, 0.491);
+    height: 2.3rem;
+}
+
+.form input::placeholder, 
+.form input:placeholder-shown {
+    padding: .3rem;
+    max-width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form input {
+    min-width: 308px;
+    width: 33vw;
+    margin-bottom: .33rem;
+    display: block;
+}
+
+.form textarea {
+    min-width: 90vw;
+    width: auto;
+    resize: none;
+}
