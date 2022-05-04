@@ -1,16 +1,17 @@
 div .card {
     border-radius: .3rem .7rem;
     text-align: center;
-    background-color: rgb(238, 233, 182);
-    border: 1px solid #986c15cd;
+    background-color: var(--prim-clr-med);
+    border: 1px solid var(--sec-clr-light);
+    color: var(--sec-clr-light);
     user-select: none;
-
 }
 
 .card h2,
 .card p {
+    font-size: 1.8rem;
+    color: var(--prim-clr-dark);
     margin: 0;
-    font-size: small;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -48,20 +48,25 @@ export default function Entry({ reviewItems, reviewItemsSet }) {
 
     return (
         <form className={styles.form} onSubmit={(evt) => handleAdd(evt)}>
+            <label className='label' htmlFor="title">Title</label>
             <input
+                id='title'
                 type="text"
                 value={contentTitle}
                 onChange={(evt) => { contentTitleSet(evt.target.value) }}
                 placeholder="something you need to remember?" />
+            <label className='label' htmlFor="link">Link</label>
             <input
                 type="url"
                 value={contentLink}
                 onChange={(evt) => { contentLinkSet(evt.target.value) }}
                 placeholder="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types" />
+            <label className='label' htmlFor="Notes">Notes</label>
             <textarea
                 value={contentBody}
                 onChange={(evt) => { contentBodySet(evt.target.value) }}
                 placeholder="" />
+            <button className='sub-btn' type='submit'>add</button>
         </form>
     )
 }

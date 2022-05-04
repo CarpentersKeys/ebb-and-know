@@ -2,41 +2,45 @@
 
 .collapse {
     font-size: 1em;
-    height: .8rem;
+    height: 1.4rem;
     border-radius: 10vh 23vh 0px 0px;
     user-select: none;
-    background-color: rgba(255, 166, 0, 0.485);
+    background-color: var(--sec-clr-med);
 }
 
 .tab {
     position: sticky;
+    border-radius: 2vh 2vh 0px 0px;
     top: 100vh;
-    max-height: 15vh;
-    background-color: khaki;
+    // background-color: var(--prim-clr-dark);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.785049053801208) 0%, rgba(30, 26, 66, 1) 16%, rgba(30, 26, 66, 1) 56%, rgba(113, 97, 250, 1) 100%);
+    max-height: 20vh;
 }
 
 .row {
+    width: 80vw;
     margin: 0px;
     padding: 5px;
-    white-space: nowrap;
+    display: inline-block;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+// .row:after {
+//     content: "";
+//     display: table;
+//     clear: both;
+// }
 
 .column {
+    min-width: 300px;
+    break-inside: avoid;
+    display: inline;
+    overflow: hidden;
     margin: 10px;
     list-style-type: none;
     float: left;
-    width: 33vw;
-    max-width: 300px;
-    background-color: rgb(244, 238, 180);
+
     :hover {
-        background-color: rgb(238, 213, 182);
+        background-color: var(--tert-clr-med);
     }
 }

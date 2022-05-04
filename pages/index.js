@@ -19,8 +19,8 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          a simple review protocal based on the{' '}
-          <code className={styles.code}> Ebbinghaus forgetting curve</code>
+          a simple review protocal based on the
+          <a href='https://en.wikipedia.org/wiki/Forgetting_curve' className={styles.emph}> forgetting curve</a>
         </p>
 
         <div className={styles.grid}>

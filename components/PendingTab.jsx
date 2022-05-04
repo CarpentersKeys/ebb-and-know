@@ -13,13 +13,18 @@ export default function PendingTab({ selectedReviewSet, pendingReviews }) {
     }, [pendingReviews, cards, hide]);
 
     useEffect(() => {
+        if (window) {
+            var { innerWidth: width, innerHeight: height } = window;
+        };
+        console.log(width, height);
+
         cardsSet(
             <ul className={styles.row}>
                 {pendingReviews
                     // .slice(0, 3)
                     .map((r, i) => {
                         return (
-                            <li onClick={() => selectedReviewSet(r)} className={styles.column} key={i}>
+                            <li id={`card${i}`} onClick={() => selectedReviewSet(r)} className={styles.column} key={i}>
                                 <ReviewCard reviewItem={r} />
                             </li>
                         )
@@ -35,5 +40,4 @@ export default function PendingTab({ selectedReviewSet, pendingReviews }) {
             {!hide && pendingReviews.length > 0 && cards}
         </div>
     )
-
 }
