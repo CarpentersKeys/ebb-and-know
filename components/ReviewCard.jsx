@@ -1,4 +1,4 @@
-import styles from '../styles/ReviewCard.module.scss'
+import styles from './ReviewCard.module.scss'
 
 export default function ReviewCard({ reviewItem }) {
 

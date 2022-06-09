@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
-import styles from '../styles/PendingTab.module.scss';
+import styles from './PendingTab.module.scss';
 
 export default function PendingTab({ selectedReviewSet, pendingReviews }) {
     const [hide, hideSet] = useState(false);

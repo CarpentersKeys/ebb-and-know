@@ -6,9 +6,11 @@
     border-radius: 10vh 23vh 0px 0px;
     user-select: none;
     background-color: var(--sec-clr-med);
+    width: 100vw;
 }
 
 .tab {
+    width: 100vw;
     position: sticky;
     border-radius: 2vh 2vh 0px 0px;
     top: 100vh;

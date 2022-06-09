@@ -4,7 +4,7 @@ import Prompt from '../components/Prompt';
 import Schedule from '../components/Schedule';
 import TimelinePreview from '../components/TimelinePreview';
 import PendingTab from '../components/PendingTab';
-import styles from '../styles/demo.module.scss'
+import styles from './demo.module.scss'
 import DisplayContent from '../components/DisplayContent';
 
 export default function AppDemo() {
@@ -24,7 +24,7 @@ export default function AppDemo() {
             <TimelinePreview reviewItems={reviewItems} />
             <Prompt count={reviewItems.length} />
             {!selectedReview && <Entry reviewItems={reviewItems} reviewItemsSet={reviewItemsSet} />}
-            {selectedReview && <DisplayContent selectedReview={selectedReview} />}
+            {selectedReview && <DisplayContent selectedReview={selectedReview} selectedReviewSet={selectedReviewSet} />}
             <PendingTab selectedReviewSet={selectedReviewSet} pendingReviews={pendingReviews} pendingReviewsSet={pendingReviewsSet} />
         </div>
     )

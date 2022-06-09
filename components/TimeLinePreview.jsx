@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { useEffect, useState } from "react";
-import styles from '../styles/TimelinePreview.module.scss';
+import styles from './TimelinePreview.module.scss';
 import useInterval from '../hooks/useInterval'
 
 export default function TimelinePreview({ reviewItems }) {

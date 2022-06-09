@@ -1,5 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill";
 import { useEffect, useState } from "react";
+import styles from './Schedule.module.scss';
 
 export default function Schedule({ reviewItems, reviewItemsSet, pendingReviewsSet }) {
     const [timerRunning, timerRunningSet] = useState(false);

@@ -1,0 +1,16 @@
+.prompt {
+    display: flex;
+    width: 30%;
+    border-radius: 3rem;
+    background-color: var(--tert-clr-light);
+    margin: 3rem;
+}
+
+.prompt p {
+    color: var(--prim-clr-dark);
+    font-family: var(--spartan);
+    font-size: 1.7jrem;
+    width: 100%;
+    text-align: center;
+    padding: .6rem;
+}

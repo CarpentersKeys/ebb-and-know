@@ -1,6 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { useState } from 'react';
-import styles from '../styles/Entry.module.scss';
+import styles from './Entry.module.scss';
 
 export default function Entry({ reviewItems, reviewItemsSet }) {
     const [contentBody, contentBodySet] = useState('');

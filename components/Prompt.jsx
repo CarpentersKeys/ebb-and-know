@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from './Prompt.module.scss'
 
 export default function Prompt({ count }) {
     const [firstChange, firstChangeSet] = useState(true);
@@ -13,7 +14,7 @@ export default function Prompt({ count }) {
     }, [count, firstChange]);
 
     return (
-        <div>
+        <div className={styles.prompt}>
             <p>{prompt}</p>
         </div>
     );

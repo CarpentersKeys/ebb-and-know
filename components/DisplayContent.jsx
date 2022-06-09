@@ -1,9 +1,14 @@
-import styles from '../styles/DisplayContent.module.scss'
+import styles from './DisplayContent.module.scss'
 
-export default function DisplayContent({ selectedReview }) {
+export default function DisplayContent({ selectedReview, selectedReviewSet }) {
+
+    function closeDisplay() {
+        selectedReviewSet((prev) => !prev) 
+    }
 
     return (
         <div className={styles.page}>
+            <button onClick={closeDisplay}>Back</button>
             <h2>{selectedReview.content.title}</h2>
             <p>{selectedReview.content.body}</p>
         </div>
